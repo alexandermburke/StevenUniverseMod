@@ -29,6 +29,7 @@ public class StevenUniverseMod
 {
   public static CreativeTabs tabSU = new StevenUniverseTab ("standard");
 
+  	@Instance(Reference.MODID) 
 	public static StevenUniverseMod instance;
     
     public static Configuration Config;
@@ -36,6 +37,8 @@ public class StevenUniverseMod
     public static final String MODID = "su";
     public static final String VERSION = "1.0";
     public static final String NAME = "Steven Universe Mod";
+    
+    public static int NewId;
     
     
     @SidedProxy(clientSide = "net.su.common.proxy.CommonProxy", serverSide = "net.su.common.proxy.ClientProxy")
@@ -62,11 +65,22 @@ public class StevenUniverseMod
     }
     
     int randomId = EntityRegistry.findGlobalUniqueEntityId();
-    int newId = 201;
+   Boolean StevenUniverseOn;
 	
     @EventHandler
     public void PreInit(FMLPreInitializationEvent event){
 
+    	EntityRegister.register();
+    	
+    	Configuration config = new Configuration(event.getSuggestedConfigurationFile());
+
+    	config.load();
+
+    	StevenUniverseOn = config.getBoolean("StevenUniverse Mod On?", "Boolean", false, "Turn off the steven Universe Mod.");
+    	StevenUniverseOn = config.get(config.CATEGORY_GENERAL, "TurnOffTheStevenUniverseMod?", false).getBoolean(false);
+    		
+    	config.save();
+    	
     	TickHandler.mainregistry();
     	
     	proxy.registerRenderThings();
@@ -75,7 +89,7 @@ public class StevenUniverseMod
     	
    // 	FMLCommonHandler.instance().bus().register(StevenUniverseMod.instance);
        
-    	EntityRegister.load();
+    //	EntityRegister.load();
     	
         MinecraftForge.EVENT_BUS.register(new Events());
 

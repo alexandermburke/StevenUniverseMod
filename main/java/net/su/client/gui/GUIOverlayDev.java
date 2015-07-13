@@ -54,8 +54,8 @@ public class GUIOverlayDev {
 		
 			if(true){
 	
-						Minecraft.getMinecraft().fontRenderer.drawString("Developer Edition", posX+(200), posY+(-160), 0xffffff);
-						
+				Minecraft.getMinecraft().fontRenderer.drawString("Developer Edition", posX+(220), posY+(-170), 0xffffff);
+				
 					
 		    }
 		

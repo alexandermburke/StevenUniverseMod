@@ -14,7 +14,7 @@ public class EntitySteven {
 
 public static void registerEntity(){
 	
-	createEntity(EntityStevenMob.class, "Steven", 0xF20521, 0x2011CF);
+	createEntity(EntityStevenMob.class, "Pearl", 0xF20521, 0x2011CF);
 	
 }
 //Sounds

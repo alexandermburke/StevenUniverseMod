@@ -1,7 +1,10 @@
 package net.su.common.items;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.su.common.blocks.GemOre;
 import net.su.common.main.StevenUniverseMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -18,7 +21,8 @@ public class ModItems {
 	public static Item d;
 	public static Item e;
 	public static Item f;
-	
+	public static Item g;
+	public static Block BlockA;
 	
 	
 	public static void register()
@@ -29,7 +33,7 @@ public class ModItems {
 		
 		b = new Steven();
 		
-		c = new Donut();
+		c = new Donut(20, false);
 		
 		d = new TheItem();
 		
@@ -37,12 +41,19 @@ public class ModItems {
 		
 		f = new TheItem();
 		
-		registerTheItem(a, "Amethyst_Gem");
-		registerTheItem(b, "Rose_Quartz_Gem");
-		registerTheItem(c, "Donut_1");
-		registerTheItem(d, "Alexandrite_Gem_1");
-		registerTheItem(e, "Garnet_Gem_1");
-		registerTheItem(f, "Lapis_Lazuli_Gem");
+		g = new Pearl();
+		
+		registerTheItem(a, "gem1");
+		registerTheItem(b, "gem2");
+		registerTheItem(c, "donut");
+		registerTheItem(d, "gem3");
+		registerTheItem(e, "gem4");
+		registerTheItem(g, "gem5");
+		registerTheItem(f, "lapis");
+		
+		BlockA = new GemOre();
+		
+		registerBlock(BlockA, "gem_ore");
 		
 	}
 	
@@ -51,11 +62,11 @@ public class ModItems {
 	
 	public static void registerRecipes()
 	{
-	// Example	GameRegistry.addRecipe(new ItemStack(FNAFItems.FreddysMic, 1), new Object[] {"CXX", "XCX", "XXC", 'C', FNAFItems.PlasticIngot, '0', Material.wood});
+		GameRegistry.addRecipe(new ItemStack(ModItems.BlockA, 1), new Object[] {"CCC", "CCC", "CCC", 'C', ModItems.f, 'X', Items.iron_ingot});
 	}
 	private static void addSmelting()
 	{
-	//Example	GameRegistry.addSmelting(FNAFItems.plasticOres, new ItemStack(FNAFItems.PlasticIngot, 1), 5.0F);
+	GameRegistry.addSmelting(ModItems.BlockA, new ItemStack(ModItems.f, 1), 5.0F);
 	}
 
 	private static void registerArmor(Item item, String name)

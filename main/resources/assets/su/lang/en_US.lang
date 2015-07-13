@@ -1,2 +1,14 @@
-item.Amethyst_Gem.name=Spawn Amethyst
+======Items========
+
+item.donut.name=Donut
+item.gem5.name=Pearl's Gem
+item.gem1.name=Amethyst's Gem
+item.gem2.name=Steven's Gem
+
+======Tabs========
+
 itemGroup.standard=§dSteven Universe Mod
+
+
+=======Blocks========
+tile.gem_ore.name=Gem Ore

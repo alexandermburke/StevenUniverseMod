@@ -6,6 +6,7 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.su.common.entity.amythist.EntityAmythistMob;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent;
 
 public class Events {
 
@@ -28,7 +29,6 @@ EntityPlayer player;
 			
 		}
 	
-	/*
 	 @SubscribeEvent
 	  public void onPlayerLogin(PlayerEvent.PlayerLoggedInEvent event)
 	  {
@@ -38,8 +38,6 @@ EntityPlayer player;
 			}
 	  }
 	  
-	  */
-	
 	 @SubscribeEvent
 	  public void onPlayerKilledBySU(LivingDeathEvent event)
 	  {
