@@ -1,0 +1,16 @@
+[
+{
+  "modid": "su",
+  "name": "§d Steven Universe Mod",
+  "description": "A mod based off of Steven Universe's TV shows.",
+  "version": "1.0",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["AltisimoMods"],
+  "credits": "MagikModder (Coder), Daniel (Modeler and Texturer)",
+  "logoFile": "logo1.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]
