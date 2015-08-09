@@ -12,16 +12,21 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-import net.su.common.entity.amythist.EntityAmythistMob;
+import net.su.common.entity.garnet.EntityGarnetMob;
+import net.su.common.entity.steven.EntityStevenMob;
 
-public class Amythist extends Item{
+public class Garnet extends Item {
+	
+	public Garnet() {
+		
+	}
 
-	String name;
 	
 	public boolean hasEffect(ItemStack itemstack)
 	{
 	    return true;
 	}
+	
 	
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
 	{
@@ -87,7 +92,7 @@ public class Amythist extends Item{
 						--j;
 					}
 
-					EntityAmythistMob robot = new EntityAmythistMob(world);
+					EntityGarnetMob robot = new EntityGarnetMob(world);
 					robot.setPosition(i + 0.5F, j + 1, k + 0.5F);
 
 					robot.rotationYaw = (float)(((MathHelper.floor_double((double)(player.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3) - 1) * 90);
@@ -112,6 +117,4 @@ public class Amythist extends Item{
 			}
 		}
 	}
-	}
-	
-
+}

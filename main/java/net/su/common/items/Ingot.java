@@ -2,10 +2,10 @@ package net.su.common.items;
 
 import net.minecraft.item.Item;
 
-public class Gem extends Item{
+public class Ingot extends Item{
+
 	
-	public Gem() {
+	public Ingot() {
 		
 	}
-
 }

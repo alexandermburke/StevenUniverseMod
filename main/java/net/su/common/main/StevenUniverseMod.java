@@ -5,14 +5,17 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.su.client.events.Events;
 import net.su.client.gui.GUIOverlayDev;
+import net.su.client.gui.GuiRun;
+import net.su.client.rank.Rank;
 import net.su.client.utils.SpawnEvent;
-import net.su.common.entity.amythist.EntityAmythist;
 import net.su.common.entity.amythist.EntityAmythistMob;
 import net.su.common.entity.register.EntityRegister;
 import net.su.common.entity.steven.EntityStevenMob;
 import net.su.common.items.ModItems;
 import net.su.common.proxy.CommonProxy;
 import net.su.common.tabs.StevenUniverseTab;
+import net.su.common.world.gen.WorldGenSU;
+
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -23,6 +26,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = Reference.MODID, version = Reference.VERSION, name = Reference.NAME)
 public class StevenUniverseMod
@@ -31,7 +35,8 @@ public class StevenUniverseMod
 
   	@Instance(Reference.MODID) 
 	public static StevenUniverseMod instance;
-    
+	public Rank force = new Rank();
+  	
     public static Configuration Config;
 	
     public static final String MODID = "su";
@@ -59,14 +64,19 @@ public class StevenUniverseMod
     {
     
     	FMLCommonHandler.instance().bus().register(StevenUniverseMod.instance);
-        
-    	
+    	 
+    	MinecraftForge.EVENT_BUS.register(new GuiRun());
+      	FMLCommonHandler.instance().bus().register(new GuiRun());
+      	
     
     }
     
     int randomId = EntityRegistry.findGlobalUniqueEntityId();
+    
    Boolean StevenUniverseOn;
-	
+   Boolean AIOn;
+   Boolean AnimationOn;
+   
     @EventHandler
     public void PreInit(FMLPreInitializationEvent event){
 
@@ -78,6 +88,13 @@ public class StevenUniverseMod
 
     	StevenUniverseOn = config.getBoolean("StevenUniverse Mod On?", "Boolean", false, "Turn off the steven Universe Mod.");
     	StevenUniverseOn = config.get(config.CATEGORY_GENERAL, "TurnOffTheStevenUniverseMod?", false).getBoolean(false);
+    	
+    	AIOn = config.getBoolean("AI On?", "Boolean", true, "Enable or disable AI.");
+    	AIOn = config.get(config.CATEGORY_GENERAL, "Disable AI", true).getBoolean(true);
+    
+    	AnimationOn = config.getBoolean("Animation On?", "Boolean", true, "Enable or disable Animation 9Reccomemnded for slow computers).");
+    	AnimationOn = config.get(config.CATEGORY_GENERAL, "Disable Animation", true).getBoolean(true);
+    	
     		
     	config.save();
     	
@@ -87,9 +104,6 @@ public class StevenUniverseMod
     	
     	ModItems.init();
     	
-   // 	FMLCommonHandler.instance().bus().register(StevenUniverseMod.instance);
-       
-    //	EntityRegister.load();
     	
         MinecraftForge.EVENT_BUS.register(new Events());
 
@@ -97,7 +111,7 @@ public class StevenUniverseMod
     
         GUIOverlayDev.load();
         
-    	
+		GameRegistry.registerWorldGenerator(new WorldGenSU(), 0);
         
         
     }

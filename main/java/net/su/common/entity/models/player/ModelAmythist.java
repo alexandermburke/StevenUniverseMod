@@ -1,7 +1,8 @@
 
-package net.su.common.entity.models;
+package net.su.common.entity.models.player;
 
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
@@ -12,7 +13,7 @@ import org.lwjgl.opengl.GL11;
  * Amethyst.tcn - TechneToTabulaImporter
  * Created using Tabula 4.1.1
  */
-public class Amythist extends ModelBase {
+public class ModelAmythist extends ModelBiped {
     public ModelRenderer head;
     public ModelRenderer rightarm;
     public ModelRenderer leftarm;
@@ -60,7 +61,7 @@ public class Amythist extends ModelBase {
     public ModelRenderer body4;
     public ModelRenderer body5;
 
-    public Amythist() {
+    public ModelAmythist() {
         this.textureWidth = 128;
         this.textureHeight = 128;
         this.Hair14 = new ModelRenderer(this, 74, 51);
@@ -249,25 +250,8 @@ public class Amythist extends ModelBase {
 		this.rightleg_1.rotateAngleX = MathHelper.cos(prog * 0.6662F + (float)Math.PI) * 1.4F * prog;
 		
     	
-		this.leftleg_1.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
+		this.rightleg_1.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
 		this.rightleg_1.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 1.4F * f1;
-		
-		this.leftleg2.rotateAngleX = MathHelper.cos(prog * 0.6662F + (float)Math.PI) * 1.4F * prog;
-		this.rightleg2.rotateAngleX = MathHelper.cos(prog * 0.6662F + (float)Math.PI) * 1.4F * prog;
-		
-    	
-
-		this.leftleg2.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
-		this.rightleg2.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 1.4F * f1;
-		
-		this.leftlegback.rotateAngleX = MathHelper.cos(prog * 0.6662F + (float)Math.PI) * 1.4F * prog;
-		this.rightlegback.rotateAngleX = MathHelper.cos(prog * 0.6662F + (float)Math.PI) * 1.4F * prog;
-		
-    	
-
-		this.leftlegback.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
-		this.rightlegback.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 1.4F * f1;
-		
 		
 		/* End Animation  */
 		
@@ -649,8 +633,6 @@ public class Amythist extends ModelBase {
 		this.leftarm.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
 		//    this.legLeft.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
 		this.rightarm.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 1.4F * f1;
-		
-	
 	}
 
     /**

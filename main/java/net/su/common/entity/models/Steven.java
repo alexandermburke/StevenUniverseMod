@@ -3,6 +3,11 @@ package net.su.common.entity.models;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.IChatComponent;
+import net.minecraft.util.MathHelper;
+
 import org.lwjgl.opengl.GL11;
 
 /**
@@ -44,6 +49,8 @@ public class Steven extends ModelBase {
     public ModelRenderer LeftArm;
     public ModelRenderer RightArm;
     public ModelRenderer Head;
+    
+    public boolean isAttacking;
 
     public Steven() {
         this.textureWidth = 64;
@@ -157,9 +164,57 @@ public class Steven extends ModelBase {
         this.Body.addChild(this.Head);
     }
 
+    ModelBase base;
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
-        this.Hair12.render(f5);
+    	/* Animation Start (Arms) */
+    	float prog = 0.1F;
+    	float prog2 = 0.5F;
+    	
+		this.RightArm.rotateAngleX = MathHelper.cos(prog * 0.6662F + (float)Math.PI) * 1.4F * prog;
+		
+    	
+
+		this.RightArm.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 1.4F * f1;
+
+
+    	/* Animation Start (Legs) */
+		
+
+		this.LeftLeg.rotateAngleX = MathHelper.cos(prog * 0.6662F + (float)Math.PI) * 1.4F * prog;
+		this.RightLeg.rotateAngleX = MathHelper.cos(prog * 0.6662F + (float)Math.PI) * 1.4F * prog;
+		
+    	
+
+		this.LeftLeg.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
+		this.RightLeg.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 1.4F * f1;
+		
+	
+		
+		/* End Animation */
+			
+		
+		/* Attack Animation */
+		if(this.isAttacking){
+			
+			
+			this.LeftArm.rotateAngleX = MathHelper.cos(prog2 * 0.6662F + (float)Math.PI) * 1.4F * prog2;
+			this.LeftArm.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.6F * f1;
+		
+		}else{
+			
+			this.LeftArm.rotateAngleX = MathHelper.cos(prog * 0.6662F + (float)Math.PI) * 1.4F * prog;
+			this.LeftArm.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
+			
+			
+		}
+			
+		/* End Attack Animation */
+
+
+		
+    	
+    	this.Hair12.render(f5);
         GL11.glPushMatrix();
         GL11.glTranslatef(this.Hair13.offsetX, this.Hair13.offsetY, this.Hair13.offsetZ);
         GL11.glTranslatef(this.Hair13.rotationPointX * f5, this.Hair13.rotationPointY * f5, this.Hair13.rotationPointZ * f5);

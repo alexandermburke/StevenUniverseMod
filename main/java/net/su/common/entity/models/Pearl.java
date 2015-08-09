@@ -3,6 +3,8 @@ package net.su.common.entity.models;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.MathHelper;
+
 import org.lwjgl.opengl.GL11;
 
 /**
@@ -128,7 +130,33 @@ public class Pearl extends ModelBase {
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) { 
-        GL11.glPushMatrix();
+    	
+    	/* Animation Start (Arms) */
+    	float prog = 0.1F;
+    	
+		this.ArmLeft.rotateAngleX = MathHelper.cos(prog * 0.6662F + (float)Math.PI) * 1.4F * prog;
+		this.ArmRight.rotateAngleX = MathHelper.cos(prog * 0.6662F + (float)Math.PI) * 1.4F * prog;
+		
+    	
+
+		this.ArmLeft.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
+		this.ArmRight.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 1.4F * f1;
+
+
+    	/* Animation Start (Legs) */
+		
+
+		this.LegLeft.rotateAngleX = MathHelper.cos(prog * 0.6662F + (float)Math.PI) * 1.4F * prog;
+		this.LegRight.rotateAngleX = MathHelper.cos(prog * 0.6662F + (float)Math.PI) * 1.4F * prog;
+		
+    	
+
+		this.LegLeft.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
+		this.LegRight.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 1.4F * f1;
+		
+		
+		/* End Animation  */
+    	GL11.glPushMatrix();
         GL11.glTranslatef(this.LegRight.offsetX, this.LegRight.offsetY, this.LegRight.offsetZ);
         GL11.glTranslatef(this.LegRight.rotationPointX * f5, this.LegRight.rotationPointY * f5, this.LegRight.rotationPointZ * f5);
         GL11.glScaled(0.8D, 1.0D, 1.0D);

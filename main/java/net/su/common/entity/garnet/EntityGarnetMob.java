@@ -1,4 +1,4 @@
-package net.su.common.entity.amythist;
+package net.su.common.entity.garnet;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackOnCollide;
@@ -15,29 +15,23 @@ import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class EntityAmythistMob extends EntityMob{
 
 
-		
+public class EntityGarnetMob extends EntityMob{
+	String newName = "Garnet";
 	
-	String newName = "Amethyst";
-	
-	public EntityAmythistMob(World par1World) {
-	
-		
+	public EntityGarnetMob(World par1World) {
 		super(par1World);
-	
-		
-		this.setCustomNameTag(newName.toUpperCase());
-		
-		this.setSize(0.6F, 2.0F);
+	    this.setSize(0.6F, 2.3F);
+
 	    this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityCreeper.class, 1.0D, true));
 	    this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityZombie.class, 1.0D, true));
 	    this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntitySkeleton.class, 1.0D, true));
 	    this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPig.class, 1.0D, true));
 	    this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityZombie.class, 1.0D, true));
 	    this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-	    
+	    this.setCustomNameTag(newName.toUpperCase());
+		
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntitySkeleton.class, 0, true));
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPig.class, 0, true));
 		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityZombie.class, 0, true));

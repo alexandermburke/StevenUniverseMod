@@ -4,6 +4,20 @@ item.donut.name=Donut
 item.gem5.name=Pearl's Gem
 item.gem1.name=Amethyst's Gem
 item.gem2.name=Steven's Gem
+item.gem6.name=Garnet's Gem
+item.gem3.name=Alexandrite's Gem [WIP]
+item.lapis.name=Lapis Lazuli's Gem [WIP]
+item.gem4.name=Ruby's Gem [WIP]
+item.ingots.name=Gem Ingot
+item.how_to_talk_to_people.name=Choose The Gamemode
+item.roses_sword.name=Rose's Sword
+item.Cookie_Cat.name=Cookie Cat
+
+===Armor===
+item.gem_jacket.name=Amethyst's Chestplate
+item.gem_helmet.name=Amethyst's Helmet
+item.gem_pants.name=Amethyst's Pants
+item.gem_boots.name=Amethyst's Boots
 
 ======Tabs========
 
@@ -12,3 +26,23 @@ itemGroup.standard=§dSteven Universe Mod
 
 =======Blocks========
 tile.gem_ore.name=Gem Ore
+
+======Achievements======
+achievement.stevenuniverse_mod=Steven Universe Mod
+achievement.stevenuniverse_mod.desc=Play with the Steven Universe Mod
+
+achievement.killed_by_amethyst=Killed By Amethyst (Non Hostile)
+achievement.killed_by_amethyst.desc=You have been killed by a non hostile mob....
+
+
+achievement.dev=I'm A Developer!
+achievement.dev.desc=You are an official AltisimoMods Dev!
+
+
+======Entities======
+
+
+entity.Steven.name=Steven
+entity.Pearl.name=Pearl
+entity.Amythist.name=Amethyst
+entity.Garnet.name=Garnet
